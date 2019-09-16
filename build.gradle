@@ -1,0 +1,39 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'com.duoshuju'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+def lxMavenUrl = ''
+lxMavenUrl = 'http://10.1.220.235:9091'
+repositories {
+    mavenCentral()
+    maven {
+        url "${lxMavenUrl}/repository/maven-public/"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    compile('org.springframework:spring-core:5.1.9.RELEASE')
+    compile('org.springframework:spring-context:5.1.9.RELEASE')
+    compile('org.springframework:spring-beans:5.1.9.RELEASE')
+    compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0')
+    compile('com.alibaba:druid:1.1.20')
+    compile('mysql:mysql-connector-java:5.1.47')
+    compile('com.cloudera:ImpalaJDBC41:2.6.4')
+    compile('org.springframework.boot:spring-boot-configuration-processor:2.1.8.RELEASE')
+}

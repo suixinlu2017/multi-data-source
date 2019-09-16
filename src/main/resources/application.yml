@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    mysqlMain:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+    hive:
+      url: jdbc:impala://10.1.222.28:21050/;auth=noSasl
+      type: com.alibaba.druid.pool.DruidDataSource
+      username:
+      password:
+      driver-class-name: com.cloudera.impala.jdbc41.Driver
+    commonconfig:
+      initialSize: 1
+      minIdle: 1
+      maxIdle: 5
+      maxActive: 50
+      maxWait: 10000
+      timeBetweenEvictionRunsMillis: 10000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      filters: stat
